@@ -1,0 +1,31 @@
+﻿@model Party.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/css/Site.css" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p>Имя: @Html.TextBoxFor(x => x.Name) </p>
+        <p>Почта: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Телефон: @Html.TextBoxFor(x => x.Phone)</p>
+        <p>
+            Вы будете присутствовать?
+            @Html.DropDownListFor(x => x.WillAttend, new[] {
+            new SelectListItem() {Text = "Да", Value =
+            bool.TrueString},
+            new SelectListItem() {Text = "Нет", Value = bool.FalseString}
+            }, "Выбрать")
+        </p>
+        <input type="submit" value="Отправить" />
+    }
+</body>
+</html>

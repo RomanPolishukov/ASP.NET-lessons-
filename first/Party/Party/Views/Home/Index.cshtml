@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<html>
+
+<head>
+    <title> Первая страница сайта</title>
+</head>
+
+<body>
+    <div>
+        @ViewBag.Greeting друг
+        <p>
+            Время подключения (@ViewBag.Timer)
+        </p>
+        @Html.ActionLink("RSVP Now", "RsvpForm")
+    </div>
+</body>
+
+</html>
+
+
